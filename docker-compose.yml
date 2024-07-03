@@ -6,7 +6,7 @@ services:
     ports: 
     - "8080:8080"
     environment:
-      allowed.origins : http://localhost:3000/hello
+      allowed.origins : http://localhost:3000
     networks:
       - project
   app:
