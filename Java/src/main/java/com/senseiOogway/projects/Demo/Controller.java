@@ -4,15 +4,17 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api")
 public class Controller {
     @Autowired
     private AllowedOriginsService allowedOriginsService;
 
     @GetMapping("/hello")
-    public ResponseEntity<Object> hello(HttpServletRequest request){
+    public ResponseEntity<String> hello(HttpServletRequest request){
 
         String domain = request.getServerName();
         int port = request.getServerPort();
@@ -20,7 +22,7 @@ public class Controller {
 
         String domainInfo = protocol + "://" + domain + ":" + port;
 
-        System.out.println(domainInfo);
-        return ResponseEntity.ok().header("Access-Control-Allow-Origin", allowedOriginsService.getAllowedOrigins()).header("content-type", "application/json").body("{message : \" DON \"}");
+//        System.out.println(domainInfo);
+        return ResponseEntity.ok().body("DON!");
     }
 }

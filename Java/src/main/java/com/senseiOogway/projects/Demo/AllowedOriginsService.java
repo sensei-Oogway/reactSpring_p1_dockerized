@@ -10,6 +10,6 @@ public class AllowedOriginsService {
     private Environment env;
 
     public String getAllowedOrigins() {
-        return env.getProperty("allowed.origins","http://localhost:3000");
+        return env.getProperty("allowed.origins","http://localhost:3001");
     }
 }
