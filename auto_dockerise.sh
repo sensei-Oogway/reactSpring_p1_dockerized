@@ -20,5 +20,5 @@ git pull
 
 # cd $doc_dir
 
-docker-compose up -d
+docker-compose up -d --build
 
