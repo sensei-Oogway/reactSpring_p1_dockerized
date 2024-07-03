@@ -12,7 +12,7 @@ public class Controller {
     private AllowedOriginsService allowedOriginsService;
 
     @GetMapping("/hello")
-    public ResponseEntity<String> hello(HttpServletRequest request){
+    public ResponseEntity<Object> hello(HttpServletRequest request){
 
         String domain = request.getServerName();
         int port = request.getServerPort();
@@ -21,6 +21,6 @@ public class Controller {
         String domainInfo = protocol + "://" + domain + ":" + port;
 
         System.out.println(domainInfo);
-        return ResponseEntity.ok().header("Access-Control-Allow-Origin", allowedOriginsService.getAllowedOrigins()).body("DON!");
+        return ResponseEntity.ok().header("Access-Control-Allow-Origin", allowedOriginsService.getAllowedOrigins()).header("content-type", "application/json").body("{message : \" DON \"}");
     }
 }
