@@ -1,6 +1,6 @@
 doc_dir=$(eval echo ~$USER/Documents/Docker_demo)
 
-cd doc_dir
+cd $doc_dir
 
 git pull
 
@@ -18,7 +18,7 @@ cd ../React_files/demo_app
 
 docker build -t react .
 
-cd doc_dir
+cd $doc_dir
 
 docker-compose up -d
 
