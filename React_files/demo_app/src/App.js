@@ -6,7 +6,8 @@ import { useState, useEffect } from 'react';
    const [name,setName] = useState("");
 
    useEffect(() => {
-      fetch('http://localhost:8080/hello')
+      let hostName = window.location.hostname;
+      fetch('http://'+hostName+':8080/hello')
           .then(response => {
               if (!response.ok) {
                   throw new Error('Network response was not ok');
