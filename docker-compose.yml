@@ -3,18 +3,19 @@ version: '3'
 services:
   server:
     build: ./Java
-    image: java
+    # image: java (Build will link it)
     ports: 
-    - "8080:8080"
+    - ${SERVERPORT}:${SERVERPORT}
     environment:
       allowed.origins : http://localhost:3000
     networks:
       - project
+
   client:
     build: ./React_files/demo_app
-    image: react
+    # image: react (Build will link it)
     ports:
-    - "3000:3000"
+    - ${CLIENTPORT}:${CLIENTPORT}
     networks:
       - project
 
