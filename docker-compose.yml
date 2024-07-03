@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  java_service:
+    image: java
+    ports: 
+    - "8080:8080"
+    environment:
+      allowed.origins : http://localhost:3000/hello
+    networks:
+      - project
+  app:
+    image: react
+    ports:
+    - "3000:3000"
+    networks:
+      - project
+
+networks:
+  project:
+    driver: bridge
