@@ -6,8 +6,6 @@ services:
     # image: java (Build will link it)
     ports: 
     - ${SERVERPORT}:${SERVERPORT}
-    environment:
-      allowed.origins : http://localhost:3000
     networks:
       - project
 

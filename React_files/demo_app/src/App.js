@@ -1,32 +1,26 @@
- import React from 'react';
-import { useState, useEffect } from 'react';
+import React from "react";
+import { useState, useEffect } from "react";
 
- function App(){
+function App() {
+  const [name, setName] = useState("");
 
-   const [name,setName] = useState("");
-
-   useEffect(() => {
-      // let hostName = window.location.hostname;
-      fetch('api/hello',{
-        headers:{
-          "accepts":"application/json"
-      }
+  useEffect(() => {
+    fetch("/api/hello")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.text();
       })
-          .then(response => {
-              if (!response.ok) {
-                  throw new Error('Network response was not ok');
-              }
-            //   console.log(response.text());
-              return response.text();
-          })
-          .then(data => setName(data))
-          .catch(error => console.error('Error fetching data:', error));
+      .then((data) => setName(data))
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
-
-    return <>
-    Hello <strong>{name}</strong>
+  return (
+    <>
+      Hello <strong>{name}</strong>
     </>
- }
+  );
+}
 
- export default App;
+export default App;
