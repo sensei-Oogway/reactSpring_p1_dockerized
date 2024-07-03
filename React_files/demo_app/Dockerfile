@@ -1,5 +1,6 @@
 FROM node:20.15-slim 
 
+RUN mkdir -p /opt/reactApp
 WORKDIR /opt/reactApp
 
 COPY /public /opt/reactApp/public
