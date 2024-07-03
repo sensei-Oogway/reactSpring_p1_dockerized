@@ -1,7 +1,8 @@
 version: '3'
 
 services:
-  java_service:
+  server:
+    build: ./Java
     image: java
     ports: 
     - "8080:8080"
@@ -9,7 +10,8 @@ services:
       allowed.origins : http://localhost:3000
     networks:
       - project
-  app:
+  client:
+    build: ./React_files/demo_app
     image: react
     ports:
     - "3000:3000"

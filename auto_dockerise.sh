@@ -10,15 +10,15 @@ git pull
 # docker rmi java
 # docker rmi react
 
-cd Java
+# cd Java
 
-docker build -t java .
+# docker build -t java .
 
-cd ../React_files/demo_app
+# cd ../React_files/demo_app
 
-docker build -t react .
+# docker build -t react .
 
-cd $doc_dir
+# cd $doc_dir
 
 docker-compose up -d
 
