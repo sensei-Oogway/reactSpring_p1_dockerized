@@ -11,4 +11,4 @@ RUN npm install
 COPY /public /opt/reactApp/public
 COPY /src /opt/reactApp/src
 
-CMD [ "set",'REACT_APP_PROXY_ADDR=http://localhost:8081',"&&","npm", "start" ]
+CMD [ "npm", "start" ]
