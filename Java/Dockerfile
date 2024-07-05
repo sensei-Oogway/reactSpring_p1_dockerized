@@ -13,6 +13,4 @@ RUN chmod +x mvnw
 
 RUN ./mvnw clean install
 
-RUN ./mvnw exec:java
-
-CMD ["/bin/bash"]
+CMD ["./mvnw", "exec:java"]
