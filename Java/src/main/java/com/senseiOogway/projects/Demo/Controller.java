@@ -8,11 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/api")
 public class Controller {
     @Autowired
     private AllowedOriginsService allowedOriginsService;
-
     @GetMapping("/hello")
     public ResponseEntity<String> hello(HttpServletRequest request){
 
