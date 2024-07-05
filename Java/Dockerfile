@@ -1,9 +1,18 @@
-FROM openjdk:24-slim-bookworm
+FROM openjdk:24-ea-4-jdk-slim-bookworm
 
 RUN mkdir -p /opt/java-app
 
 WORKDIR /opt/java-app
 
-COPY /target/Demo-0.0.1.jar /opt/java-app/app.jar
+COPY src ./src
+COPY pom.xml ./pom.xml
+COPY mvnw ./mvnw
+COPY .mvn ./.mvn
 
-CMD ["java","-jar","app.jar"]
+RUN chmod +x mvnw
+
+RUN ./mvnw clean install
+
+RUN ./mvnw exec:java
+
+CMD ["/bin/bash"]
