@@ -58,4 +58,4 @@ docker build -t combined-app .
 docker run -d -p 80:80 combined-app
 ```
 
-Access the application at `http://localhost:80`.
+Access the application at `http://localhost`.
