@@ -24,12 +24,14 @@ COPY /src ./src
 
 RUN npm run build
 
-COPY /build /opt/java-app/src/main/resources/static
+# COPY /build /opt/java-app/src/main/resources/static
 
 #Java building
 FROM openjdk:24-ea-4-jdk-slim-bookworm
 
 WORKDIR /opt/java-app
+
+COPY --from=0 /opt/reactApp/build /opt/java-app/src/main/resources/static
 
 RUN chmod +x mvnw
 
