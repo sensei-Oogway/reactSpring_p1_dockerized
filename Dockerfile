@@ -7,20 +7,20 @@ RUN mkdir -p /opt/java-app
 WORKDIR /opt/java-app
 
 COPY Java/src ./src
-COPY pom.xml ./pom.xml
-COPY mvnw ./mvnw
-COPY .mvn ./.mvn
+COPY Java/pom.xml ./pom.xml
+COPY Java/mvnw ./mvnw
+COPY Java/.mvn ./.mvn
 
 #Static building
 WORKDIR /opt/reactApp
 
-COPY /package.json .
-COPY /package-lock.json .
+COPY React_files/demo_app/package.json .
+COPY React_files/demo_app/package-lock.json .
 
 RUN npm install
 
-COPY /public ./public
-COPY /src ./src
+COPY React_files/demo_app/public ./public
+COPY React_files/demo_app/src ./src
 
 RUN npm run build
 
